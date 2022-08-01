@@ -3,59 +3,70 @@ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
-   /*
-                <h2>Mission Destination</h2>
+   let div = document.getElementById("missionTarget");
+   div.innerHTML =
+                `<h2>Mission Destination</h2>
                 <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
+                    <li>Name:${name} </li>
+                    <li>Diameter:${diameter} </li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth:${distance} </li>
+                    <li>Number of Moons:${moons} </li>
                 </ol>
-                <img src="">
-   */
+                <img src=" ${imageUrl}">`
+
 }
 
 function validateInput(testInput) {
-    window.addEventListener("load", function() {
-        let form = document.querySelector("testForm");
-        form.addEventListener("submit", function(event) {
-  
-    const  pilotName = document.querySelector("input[name=pilotName]");
-    const  copilotName = document.querySelector("input[name=copilotName]");
-    const  fuelLevel = document.querySelector("input[value=fuelLevel]");
-    const  cargoMass = document.querySelector("input[value=cargoMass]");
-           if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === ""||  cargoMass.value === "") {
-            event.preventDefault(event); 
-            alert("All fields are required!");   
-           }
-            if (pilotName.value !== string|| copilotName.value !== string){
-            alert("Not a Number");
-           }
-            if (fuelLevel.value === isNaN(value)|| cargoMass.value === isNaN(value)){
-            alert("Is a Number");
-           }
-             
-        });
-     });
-    
+    if  (testInput === "") {
+    return "Empty";
+}   else if (isNan(testInput)){
+    return "Not A Number"
+}   else (!isNaN(testInput))
+    return "Is A Number"
 }
+
+   
+
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
-}
+
+    let pilotStatus = document.getElementById("pilotName");
+    let copilotStatus = document.getElementById("copilotName");
+    let fuelLevelStatus = document.getElementById("fuelLevel");
+    let cargoLevelStatus = document.getElementById("cargoLevel");
+    let launchStatus = document.getElementById("launchStatus")
+
+if (validateInput(pilot)=== "Empty"||
+validateInput(copilot) === "Empty"||
+validateInput(fuelLevel) === "Empty" ||
+validateInput(cargoLevel) === "Empty"){
+    alert("All Fields Are Required");
+    
+} else if
+    (validateInput(pilot) === "Is A Number"|| validateInput(copilot) === "Is A Number"){
+        alert("Name's Should Not Include Numbers")
+    
+    } else if
+    (validateInput(fuelLevel)=== "Not A Number"||validateInput(cargoLevel)=== "Not A Number"){
+        alert("Fuel Level and Cargo Mass Should be Numbers")
+
+
+};
+//document.getElementById("myP").style.visibility = "visible";
+};
 
 async function myFetch() {
-    fetch("https://handlers.education.launchcode.org/static/planets.json").then
-    let planetsReturned;
-
-    planetsReturned = await fetch().then( function(response) {
-        });
-
+    
+    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response){
+        return response.json();
+});
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+    let selectedPlanet = Math.floor(Math.random)* planets.length;
+    return planets[selectedPlanet];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;

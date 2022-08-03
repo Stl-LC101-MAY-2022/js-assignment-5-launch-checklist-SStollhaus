@@ -33,8 +33,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     let pilotStatus = document.getElementById("pilotName");
     let copilotStatus = document.getElementById("copilotName");
-    let fuelLevelStatus = document.getElementById("fuelLevel");
-    let cargoLevelStatus = document.getElementById("cargoLevel");
+    let fuelStatus = document.getElementById("fuelLevel");
+    let cargoStatus = document.getElementById("cargoLevel");
     let launchStatus = document.getElementById("launchStatus")
 
 if (validateInput(pilot)=== "Empty"||
@@ -53,6 +53,25 @@ validateInput(cargoLevel) === "Empty"){
 
 
 };
+pilotStatus.innerHTML = `Pilot ${pilot} is Ready!`;
+copilotStatus.innerHTML = `Copilot ${copilot} is Ready!`
+
+if (fuelLevel > 0 && fuelLevel < 10000){
+    fuelStatus.innerHTML = `Not Enough Fuel for Launch!`
+    launchStatus.innerHTML = `Shuttle not ready for launch.`
+    launchStatus.style.color = 'red'
+    list.style.visibility = 'visible';
+}
+if (cargoLevel > 10000){
+    cargoStatus.innerHTML = `Cargo Too Heavy for Launch!`
+    launchStatus.innerHTML = `Shuttle not ready for launch.`
+    launchStatus.style.color = 'red'
+    list.style.visibility = 'visible';
+}
+if (fuelLevel > 10000 && cargoLevel < 10000){
+    launchStatus.innerHTML = 'Shuttle is Ready for Launch!'
+    launchStatus.style.color = 'green';
+}
 //document.getElementById("myP").style.visibility = "visible";
 };
 
@@ -65,8 +84,8 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-    let selectedPlanet = Math.floor(Math.random)* planets.length;
-    return planets[selectedPlanet];
+    let planetPicked = Math.floor(Math.random)* planets.length;
+    return planets[planetPicked];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;

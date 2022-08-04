@@ -1,4 +1,6 @@
-import { addDestinationInfo } from "./scriptHelper";
+//import { addDestinationInfo, formSubmission } from "./scriptHelper";
+
+//const { formSubmission } = require("./scriptHelper");
 
 // Write your JavaScript code here!
 window.addEventListener("load", function() {
@@ -16,12 +18,30 @@ window.addEventListener("load", function() {
  pickPlanet(listedPlanets);  
  addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.imageUrl);
     })
-//    async function myFetch() {
-    
-//     let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response){
-//         return response.json();
-// });
-//     return planetsReturned;
-// }
+    let form = document.querySelector("form");
+    let list = document.getElementById("faultyItems");
+    list.style.visibility = "hidden";
+
+
+
+form.addEventListener("submit", function(event){
+event.preventDefault();
+
+let pilotInput = document.querySelector("input[name=pilotName]");
+let pilot = pilotInput.value;
+let copilotInput =  document.querySelector("input[name=copilotName]");
+let copilot = copilotInput.value;
+let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
+let fuelLevel = fuelLevelInput.value;
+let cargoLevelInput = document.querySelector("input[name=cargoLevel]");
+let cargoLevel = cargoLevelInput.value;
+        
+
+ formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+
+  
 
 });
+
+});
+

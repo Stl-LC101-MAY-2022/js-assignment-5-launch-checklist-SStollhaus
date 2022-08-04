@@ -63,23 +63,17 @@ if (cargoMass > 10000 && fuelLevel < 10000){
     launchStatus.style.color = 'red';
     launchStatus.innerHTML = `Shuttle not ready for launch.`
     
-    
 }
-// else if (cargoMass < 10000 && fuelLevel >10000){
-//     fuelLevel.innerHTML = 'Fuel Level is Good for Launch!'
-//     cargoStatus.innerHTML = `Cargo Mass is Good for Launch!`
-//     list.style.visibility = 'visible';
-//     launchStatus.style.color = 'red';
-//     launchStatus.innerHTML = `Shuttle not ready for launch.`
-// }
-else if (cargoMass < 10000 && fuelLevel <10000){
+
+if (cargoMass < 10000 && fuelLevel <10000){
     fuelLevel.innerHTML = "Not Enough Fuel for Launch!"
     cargoStatus.innerHTML = `Cargo Mass is Good for Launch!`
     list.style.visibility = 'visible';
     launchStatus.style.color = 'red';
     launchStatus.innerHTML = `Shuttle not ready for launch.`
 
-}else (fuelLevel > 10000 && cargoMass < 10000);{
+}
+else (fuelLevel > 10000 && cargoMass < 10000);{
     fuelLevel.innerHTML = 'Fuel Level is Good for Launch!'
     cargoStatus.innerHTML = `Cargo Mass is Good for Launch!`
     list.style.visibility = 'visible';
@@ -97,7 +91,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-    let planetPicked = Math.floor((Math.random)* planets.length);
+    let planetPicked = Math.floor((Math.random())* planets.length);
     console.log(planets[planetPicked]);
     return planets[planetPicked];
 }

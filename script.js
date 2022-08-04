@@ -1,7 +1,7 @@
 //import { addDestinationInfo, formSubmission } from "./scriptHelper";
 
 //const { formSubmission } = require("./scriptHelper");
-
+//cargoLevel
 // Write your JavaScript code here!
 window.addEventListener("load", function() {
 
@@ -33,11 +33,11 @@ let copilotInput =  document.querySelector("input[name=copilotName]");
 let copilot = copilotInput.value;
 let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
 let fuelLevel = fuelLevelInput.value;
-let cargoLevelInput = document.querySelector("input[name=cargoLevel]");
-let cargoLevel = cargoLevelInput.value;
+let cargoMassInput = document.querySelector("input[name=cargoMass]");
+let cargoMass = cargoMassInput.value;
         
 
- formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+ formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass);
 
   
 

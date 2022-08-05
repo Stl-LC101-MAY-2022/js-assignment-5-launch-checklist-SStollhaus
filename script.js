@@ -1,7 +1,7 @@
 //import { addDestinationInfo, formSubmission } from "./scriptHelper";
 
 //const { formSubmission } = require("./scriptHelper");
-//cargoLevel
+
 // Write your JavaScript code here!
 window.addEventListener("load", function() {
 
@@ -18,13 +18,17 @@ window.addEventListener("load", function() {
  pickPlanet(listedPlanets);  
  addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image);
     })
+    
+    
     let form = document.querySelector("form");
-    let list = document.getElementById("faultyItems");
-    list.style.visibility = "hidden";
+    // let list = document.getElementById("faultyItems");
+    // list.style.visibility = "hidden";
 
 
 
 form.addEventListener("submit", function(event){
+    let list = document.getElementById("faultyItems");
+    list.style.visibility = "hidden";
 event.preventDefault();
 
 let pilotInput = document.querySelector("input[name=pilotName]");
